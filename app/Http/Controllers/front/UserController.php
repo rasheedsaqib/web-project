@@ -309,6 +309,8 @@ class UserController extends Controller
             'confirmpassword.required' => 'Confirm Password is required'
         ]);
 
+        dd("Fuck YOu");
+
         $error_array = array();
         $success_output = '';
         if ($validation->fails()) {
