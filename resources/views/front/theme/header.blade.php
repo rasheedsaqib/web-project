@@ -103,10 +103,10 @@
                             <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                href="javascript:void(0)">
-                                <img src='{!! asset("public/images/profile/".Session::get("profile_image")) !!}' alt="">
+                                <img src='{!! asset("images/profile/".Session::get("profile_image")) !!}' alt="">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="javascript:void(0)">Hello, {{Session::get('name')}}</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Hello, {{Session::get('name') }}</a>
                                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#AddReview">Add
                                     Review</a>
                                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#Refer">Refer and

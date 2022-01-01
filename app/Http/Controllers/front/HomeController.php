@@ -18,11 +18,6 @@ use Session;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $getslider = Slider::all();
@@ -42,7 +37,6 @@ class HomeController extends Controller
         $getbanner = Banner::orderby('id', 'desc')->get();
 
         $getdata = User::select('currency')->where('type', '1')->first();
-
         return view('front.home', compact('getslider', 'getcategory', 'getabout', 'getitem', 'getreview', 'getbanner', 'getdata'));
     }
 

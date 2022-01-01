@@ -173,16 +173,16 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- bootstrap js -->
-<script src="{!! asset('public/front/js/bootstrap.bundle.js') !!}"></script>
+<script src="{!! asset('front/js/bootstrap.bundle.js') !!}"></script>
 <!-- owl.carousel js -->
-<script src="{!! asset('public/front/js/owl.carousel.min.js') !!}"></script>
+<script src="{!! asset('front/js/owl.carousel.min.js') !!}"></script>
 <!-- lazyload js -->
-<script src="{!! asset('public/front/js/lazyload.js') !!}"></script>
+<script src="{!! asset('front/js/lazyload.js') !!}"></script>
 <!-- custom js -->
-<script src="{!! asset('public/front/js/custom.js') !!}"></script>
+<script src="{!! asset('front/js/custom.js') !!}"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="{!! asset('public/assets/plugins/sweetalert/js/sweetalert.min.js') !!}"></script>
-<script src="{!! asset('public/assets/plugins/sweetalert/js/sweetalert.init.js') !!}"></script>
+<script src="{!! asset('assets/plugins/sweetalert/js/sweetalert.min.js') !!}"></script>
+<script src="{!! asset('assets/plugins/sweetalert/js/sweetalert.init.js') !!}"></script>
 <script type="text/javascript">
     function myFunction() {
         var copyText = document.getElementById("myInput");
