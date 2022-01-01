@@ -25,17 +25,7 @@
     <link href="{!! asset('assets/css/style.css') !!}" rel="stylesheet">
 </head>
 <body>
-<!--*******************
-    Preloader start
-********************-->
-{{--<div id="preloader">--}}
-{{--    <div class="loader">--}}
-{{--        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">--}}
-{{--    </div>--}}
-{{--</div>--}}
-<!--*******************
-    Preloader end
-********************-->
+
 <div id="main-wrapper">
     @include('theme.header')
     @include('theme.sidebar')
@@ -751,7 +741,6 @@
         var confirmpassword = $("#confirmpassword").val();
         var CSRF_TOKEN = $('input[name="_token"]').val();
         if ($("#change_password_form").valid()) {
-            $('#preloader').show();
             $.ajax({
                 headers: {
                     'X-CSRF-Token': CSRF_TOKEN
@@ -761,7 +750,6 @@
                 data: {'oldpassword': oldpassword, 'newpassword': newpassword, 'confirmpassword': confirmpassword},
                 dataType: "json",
                 success: function (data) {
-                    $('#preloader').hide();
                     $("#loading-image").hide();
                     if (data.error.length > 0) {
                         var error_html = '';
@@ -776,7 +764,6 @@
                         location.reload();
                     }
                 }, error: function (data) {
-                    $('#preloader').hide();
                 }
             });
         }
@@ -797,7 +784,6 @@
         var timezone = $("#timezone").val();
         var CSRF_TOKEN = $('input[name="_token"]').val();
         if ($("#settings").valid()) {
-            $('#preloader').show();
             $.ajax({
                 headers: {
                     'X-CSRF-Token': CSRF_TOKEN
@@ -820,10 +806,8 @@
                 },
                 dataType: "json",
                 beforeSend: function () {
-                    $('#preloader').hide();
                 },
                 success: function (data) {
-                    $('#preloader').hide();
                     if (data.error.length > 0) {
                         var error_html = '';
                         for (var count = 0; count < data.error.length; count++) {
@@ -837,7 +821,6 @@
                         location.reload();
                     }
                 }, error: function (data) {
-                    $('#preloader').hide();
                 }
             });
         }
@@ -878,7 +861,6 @@
     var noticount = 0;
     (function noti() {
         var CSRF_TOKEN = $('input[name="_token"]').val();
-        $('#preloader').show();
         $.ajax({
             headers: {
                 'X-CSRF-Token': CSRF_TOKEN
@@ -887,7 +869,6 @@
             method: 'GET', //Get method,
             dataType: "json",
             success: function (response) {
-                $('#preloader').hide();
                 noticount = localStorage.getItem("count");
                 $('#notificationcount').text(response);
                 if (response != 0) {
@@ -907,7 +888,6 @@
 
     function clearnoti() {
         var CSRF_TOKEN = $('input[name="_token"]').val();
-        $('#preloader').show();
         $.ajax({
             headers: {
                 'X-CSRF-Token': CSRF_TOKEN
@@ -915,7 +895,6 @@
             url: "{{ url('admin/clearnotification') }}",
             dataType: "json",
             success: function (response) {
-                $('#preloader').hide();
                 console.log(response);
             }
         });
