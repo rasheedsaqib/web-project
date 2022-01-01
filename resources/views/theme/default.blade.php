@@ -25,17 +25,17 @@
     <link href="{!! asset('assets/css/style.css') !!}" rel="stylesheet">
 </head>
 <body>
-{{--<!--*******************--}}
-{{--    Preloader start--}}
-{{--********************-->--}}
-{{--<div id="preloader">--}}
-{{--    <div class="loader">--}}
-{{--        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<!--*******************--}}
-{{--    Preloader end--}}
-{{--********************-->--}}
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="loader">
+        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">
+    </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
 <div id="main-wrapper">
     @include('theme.header')
     @include('theme.sidebar')
@@ -65,7 +65,7 @@
                                     <form method="post" id="change_password_form">
                                         {{csrf_field()}}
                                         <div class="modal-body">
-                                            <label>Old Passwod: </label>
+                                            <label>Old Password: </label>
                                             <div class="form-group">
                                                 <input type="password" placeholder="Enter Old Password"
                                                        class="form-control" name="oldpassword" id="oldpassword">

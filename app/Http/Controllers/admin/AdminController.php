@@ -92,10 +92,10 @@ class AdminController extends Controller
                 $error_array[] = "Old Password is not match.";
             }
         }
-        $output = array(
+        $output = [
             'error' => $error_array,
             'success' => $success_output
-        );
+        ];
         return json_encode($output);
 
     }
@@ -135,10 +135,10 @@ class AdminController extends Controller
                 $error_array[] = "Please try again";
             }
         }
-        $output = array(
+        $output = [
             'error' => $error_array,
             'success' => $success_output
-        );
+        ];
         return json_encode($output);
 
     }
