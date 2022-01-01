@@ -40,11 +40,9 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $login = User::where('email', $request['email'])->where('type', '=', '2')->first();
-
         $getdata = User::select('referral_amount')->where('type', '1')->first();
 
         if (!empty($login)) {
-
             if (Hash::check($request->get('password'), $login->password)) {
                 if ($login->is_verified == '1') {
                     if ($login->is_available == '1') {
@@ -69,15 +67,9 @@ class UserController extends Controller
 
                     $otp = rand(100000, 999999);
                     try {
-
                         $title = 'Email Verification Code';
                         $email = $request->email;
                         $data = ['title' => $title, 'email' => $email, 'otp' => $otp];
-
-                        Mail::send('Email.emailverification', $data, function ($message) use ($data) {
-                            $message->from(env('MAIL_USERNAME'))->subject($data['title']);
-                            $message->to($data['email']);
-                        });
 
                         if (env('Environment') == 'sendbox') {
                             session([

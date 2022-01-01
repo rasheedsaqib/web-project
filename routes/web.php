@@ -53,7 +53,7 @@ Route::group(['namespace' => 'front'], function () {
 	Route::post('/orders/walletorder', 'OrderController@walletorder');
 	Route::post('/order/ordercancel', 'OrderController@ordercancel');
 	Route::get('/order-details/{id}', 'OrderController@orderdetails');
-	
+
 	Route::get('/signin', 'UserController@index');
 	Route::post('/signin/login', 'UserController@login');
 	Route::get ( '/logout', 'UserController@logout' );
@@ -61,7 +61,7 @@ Route::group(['namespace' => 'front'], function () {
 	Route::post('/signup/signup', 'UserController@register');
 
 	Route::get('/wallet', 'UserController@wallet');
-	
+
 	Route::get('/forgot-password', 'UserController@forgot_password');
 	Route::post('/forgot-password/forgot-password', 'UserController@forgotpassword');
 	Route::post('/home/changePassword', 'UserController@changePassword');
@@ -74,7 +74,7 @@ Route::group(['namespace' => 'front'], function () {
 	Route::get('/paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
 	// Post Route For Makw Payment Request
 	Route::post('/payment', 'RazorpayController@payment')->name('payment');
-	
+
 	Route::post('stripe-payment/charge', 'CheckoutController@charge');
 
 	Route::get('/privacypolicy', 'PrivacyPolicyController@index');
@@ -90,7 +90,6 @@ Route::get('/auth', function () {
 	return view('/auth');
 });
 Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
-	
 
 	Route::get('/', function () {
 		return view('auth.login');
@@ -221,7 +220,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 
 		Route::get('termscondition', 'TermsController@index');
 		Route::post('termscondition/update', 'TermsController@update');
-		
+
 	});
 
 	Route::get('logout', 'AdminController@logout');
