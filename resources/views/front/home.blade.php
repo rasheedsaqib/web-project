@@ -72,7 +72,7 @@
                                         <a class="i" href="{{URL::to('/signin')}}"><i class="fal fa-heart"></i></a>
                                     @endif
                                 </div>
-                                <div class="product-details-wrap">
+                                    <div class="product-details-wrap">
                                     <div class="product-details">
                                         <a href="{{URL::to('product-details/'.$item->id)}}">
                                             <h4>{{$item->item_name}}</h4>
