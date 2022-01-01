@@ -28,11 +28,11 @@
 <!--*******************
     Preloader start
 ********************-->
-<div id="preloader">
-    <div class="loader">
-        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">
-    </div>
-</div>
+{{--<div id="preloader">--}}
+{{--    <div class="loader">--}}
+{{--        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!--*******************
     Preloader end
 ********************-->
