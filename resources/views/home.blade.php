@@ -1,7 +1,6 @@
 @extends('theme.default')
 
 @section('content')
-
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-lg-3 col-sm-6">
@@ -220,6 +219,7 @@
 
         </div>
     </div>
+
     <!-- #/ container -->
 @endsection
 @section('script')
@@ -369,3 +369,4 @@
         }
     </script>
 @endsection
+

@@ -25,17 +25,17 @@
     <link href="{!! asset('assets/css/style.css') !!}" rel="stylesheet">
 </head>
 <body>
-<!--*******************
-    Preloader start
-********************-->
-<div id="preloader">
-    <div class="loader">
-        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">
-    </div>
-</div>
-<!--*******************
-    Preloader end
-********************-->
+{{--<!--*******************--}}
+{{--    Preloader start--}}
+{{--********************-->--}}
+{{--<div id="preloader">--}}
+{{--    <div class="loader">--}}
+{{--        <img src="{!! asset('front/images/loader.gif') !!}" style="width: 80px;">--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<!--*******************--}}
+{{--    Preloader end--}}
+{{--********************-->--}}
 <div id="main-wrapper">
     @include('theme.header')
     @include('theme.sidebar')
@@ -121,7 +121,7 @@
                                                             <div class="form-group">
                                                                 <input type="text"
                                                                        placeholder="Enter Tax in percentage (%)"
-                                                                       value="{{{Auth::user()->tax}}}"
+                                                                       value="{{Auth::user()->tax}}"
                                                                        class="form-control" name="tax" id="tax">
                                                             </div>
                                                         </div>
@@ -130,7 +130,7 @@
                                                         <div class="form-group">
                                                             <label>Delivery Charge: </label>
                                                             <input type="text" placeholder="Delivery Charge"
-                                                                   value="{{{Auth::user()->delivery_charge}}}"
+                                                                   value="{{Auth::user()->delivery_charge}}"
                                                                    class="form-control" name="delivery_charge"
                                                                    id="delivery_charge">
                                                         </div>
@@ -143,7 +143,7 @@
                                                         <div class="form-group">
                                                             <label>Referral Amount: </label>
                                                             <input type="text" placeholder="Referral Amount"
-                                                                   value="{{{Auth::user()->referral_amount}}}"
+                                                                   value="{{Auth::user()->referral_amount}}"
                                                                    class="form-control" name="referral_amount"
                                                                    id="referral_amount">
                                                         </div>
@@ -152,7 +152,7 @@
                                                         <div class="form-group">
                                                             <label>Currency: </label>
                                                             <input type="text" placeholder="Currency"
-                                                                   value="{{{Auth::user()->currency}}}"
+                                                                   value="{{Auth::user()->currency}}"
                                                                    class="form-control" name="currency" id="currency">
                                                         </div>
                                                     </div>
@@ -178,7 +178,7 @@
                                                             <label>Latitude: </label>
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control" name="lat"
-                                                                       id="lat" value="{{{Auth::user()->lat}}}">
+                                                                       id="lat" value="{{Auth::user()->lat}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -186,7 +186,7 @@
                                                         <div class="form-group">
                                                             <label>Longitude: </label>
                                                             <input type="text" class="form-control" name="lang"
-                                                                   id="lang" value="{{{Auth::user()->lang}}}">
+                                                                   id="lang" value="{{Auth::user()->lang}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,7 +198,7 @@
                                                             <label>Max. Order QTY: </label>
                                                             <div class="form-group">
                                                                 <input type="text" placeholder="Max. Order QTY"
-                                                                       value="{{{Auth::user()->max_order_qty}}}"
+                                                                       value="{{Auth::user()->max_order_qty}}"
                                                                        class="form-control" name="max_order_qty"
                                                                        id="max_order_qty">
                                                             </div>
@@ -208,7 +208,7 @@
                                                         <div class="form-group">
                                                             <label>Min. Order Amount: </label>
                                                             <input type="text" placeholder="Min. Order Amount"
-                                                                   value="{{{Auth::user()->min_order_amount}}}"
+                                                                   value="{{ Auth::user()->min_order_amount }}"
                                                                    class="form-control" name="min_order_amount"
                                                                    id="min_order_amount">
                                                         </div>
@@ -217,7 +217,7 @@
                                                         <div class="form-group">
                                                             <label>Max. Order Amount: </label>
                                                             <input type="text" placeholder="Max. Order Amount"
-                                                                   value="{{{Auth::user()->max_order_amount}}}"
+                                                                   value="{{Auth::user()->max_order_amount}}"
                                                                    class="form-control" name="max_order_amount"
                                                                    id="max_order_amount">
                                                         </div>
@@ -232,7 +232,7 @@
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control" name="firebase"
                                                                        id="firebase"
-                                                                       value="{{{Auth::user()->firebase}}}">
+                                                                       value="{{Auth::user()->firebase}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -240,7 +240,7 @@
                                                         <div class="form-group">
                                                             <label>Map Key: </label>
                                                             <input type="text" class="form-control" name="map" id="map"
-                                                                   value="{{{Auth::user()->map}}}">
+                                                                   value="{{Auth::user()->map}}">
                                                         </div>
                                                     </div>
                                                 </div>

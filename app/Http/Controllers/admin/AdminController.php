@@ -47,7 +47,6 @@ class AdminController extends Controller
 
     public function getorder()
     {
-
         $todayorders = Order::with('users')
             ->where('created_at', 'LIKE', '%' . date("Y-m-d") . '%')
             ->where('is_notification', '=', '1')
