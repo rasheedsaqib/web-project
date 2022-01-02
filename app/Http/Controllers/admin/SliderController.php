@@ -52,7 +52,7 @@ class SliderController extends Controller
             }
         } else {
             $image = 'slider-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move('public/images/slider', $image);
+            $request->image->move('images/slider', $image);
             $slider = new Slider;
             $slider->image = $image;
             $slider->title = $request->title;
