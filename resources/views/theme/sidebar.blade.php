@@ -36,16 +36,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{URL::to('/admin/pincode')}}" aria-expanded="false">
-                    <i class="fa fa-map-pin" aria-hidden="true"></i><span class="nav-text">Pincodes</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{URL::to('/admin/promocode')}}" aria-expanded="false">
-                    <i class="fa fa-tag"></i><span class="nav-text">Promocodes</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{URL::to('/admin/driver')}}" aria-expanded="false">
                     <i class="fa fa-car"></i><span class="nav-text">Drivers</span>
                 </a>
@@ -75,11 +65,11 @@
                     <i class="fa fa-star"></i><span class="nav-text">Reviews</span>
                 </a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{URL::to('/admin/report')}}" aria-expanded="false">--}}
-{{--                    <i class="fa fa-bar-chart"></i><span class="nav-text">Report</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
+            {{--            <li>--}}
+            {{--                <a href="{{URL::to('/admin/report')}}" aria-expanded="false">--}}
+            {{--                    <i class="fa fa-bar-chart"></i><span class="nav-text">Report</span>--}}
+            {{--                </a>--}}
+            {{--            </li>--}}
             <li>
                 <a href="{{URL::to('/admin/contact')}}" aria-expanded="false">
                     <i class="fa fa-envelope"></i><span class="nav-text">Inquiries</span>
