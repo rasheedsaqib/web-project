@@ -117,14 +117,14 @@
                             <label for="cart-delivery">
                                 <input type="radio" name="cart-delivery" id="cart-delivery" checked value="1">
                                 <div class="cart-delivery-type-box">
-                                    <img src="{!! asset('public/front/images/pickup-truck.png') !!}" height="40" width="40" alt="">
+                                    <img src="{!! asset('/front/images/pickup-truck.png') !!}" height="40" width="40" alt="">
                                     <p>Delivery</p>
                                 </div>
                             </label>
                             <label for="cart-pickup">
                                 <input type="radio" name="cart-delivery" id="cart-pickup" value="2">
                                 <div class="cart-delivery-type-box">
-                                    <img src="{!! asset('public/front/images/delivery.png') !!}" height="40" width="40" alt="">
+                                    <img src="{!! asset('/front/images/delivery.png') !!}" height="40" width="40" alt="">
                                     <p>Pickup</p>
                                 </div>
                             </label>
