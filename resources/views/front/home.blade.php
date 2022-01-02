@@ -4,7 +4,7 @@
     <div class="container-fluid px-0">
         <div class="banner-carousel owl-carousel owl-theme">
             @foreach ($getslider as $slider)
-{{--                @dd(s$slider)--}}
+                {{--                @dd(s$slider)--}}
                 <div class="item">
                     <img src='{{ asset("images/slider/".$slider->image) }}' alt="">
                     <div class="banner-contant">
