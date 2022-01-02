@@ -41,9 +41,9 @@ Route::group(['namespace' => 'front'], function () {
 
 	Route::get('/cart', 'CartController@index');
 	Route::post('/cart/qtyupdate','CartController@qtyupdate');
-	Route::post('/cart/applypromocode', 'CartController@applypromocode');
+//	Route::post('/cart/applypromocode', 'CartController@applypromocode');
 	Route::post('/cart/deletecartitem', 'CartController@deletecartitem');
-	Route::post('/cart/removepromocode', 'CartController@removepromocode');
+//	Route::post('/cart/removepromocode', 'CartController@removepromocode');
 	Route::get('/cart/isopenclose', 'CartController@isopenclose');
 
 	Route::get('/favorite', 'FavoriteController@index');
@@ -71,9 +71,9 @@ Route::group(['namespace' => 'front'], function () {
 	Route::post('/email-verification', 'UserController@email_verification');
 
 	// Get Route For Show Payment Form
-	Route::get('/paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
-	// Post Route For Makw Payment Request
-	Route::post('/payment', 'RazorpayController@payment')->name('payment');
+//	Route::get('/paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
+//	// Post Route For Makw Payment Request
+//	Route::post('/payment', 'RazorpayController@payment')->name('payment');
 
 	Route::post('stripe-payment/charge', 'CheckoutController@charge');
 
@@ -135,10 +135,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 		Route::post('item/status', 'ItemController@status');
 		Route::post('item/delete', 'ItemController@delete');
 
-		Route::get('payment', 'PaymentController@index');
-		Route::post('payment/status', 'PaymentController@status');
-		Route::get('manage-payment/{id}', 'PaymentController@managepayment');
-		Route::post('payment/update', 'PaymentController@update');
+//		Route::get('payment', 'PaymentController@index');
+//		Route::post('payment/status', 'PaymentController@status');
+//		Route::get('manage-payment/{id}', 'PaymentController@managepayment');
+//		Route::post('payment/update', 'PaymentController@update');
 
 		Route::get('addons', 'AddonsController@index');
 		Route::post('addons/getitem', 'AddonsController@getitem');

@@ -6,7 +6,7 @@
         <div class="row">
             @if (count($cartdata) == 0)
                 <p>No Data found</p>
-            @else 
+            @else
                 <div class="col-lg-8">
                     @foreach ($cartdata as $cart)
                     <?php
@@ -36,11 +36,11 @@
                                 </div>
                                 <p class="cart-pricing">{{$taxval->currency}}{{number_format($cart->price, 2)}}</p>
                             </div>
-                                
+
                             @if (count($cart['addons']) != 0)
                                 <div class="cart-addons-wrap">
                                 @foreach ($cart['addons'] as $addons)
-                                
+
                                     <div class="cart-addons">
                                         <b>{{$addons['name']}}</b> : {{$taxval->currency}}{{number_format($addons['price'], 2)}}
                                     </div>
@@ -55,32 +55,32 @@
                     </div>
                     @endforeach
 
-                    @if (Session::has('offer_amount'))
-                        <div class="promo-code">
-                            <form>
-                            <div class="promo-wrap">
-                                <input type="text" name="removepromocode" id="removepromocode" autocomplete="off" readonly="" value="{{Session::get('offer_code')}}">
-                                <button class="btn" id="ajaxRemove">Remove</button>
-                            </div>
-                            </form>
-                        </div>
-                    @else
-                        <div class="promo-code">
-                            <form>
-                            <div class="promo-wrap">
-                                <input type="text" placeholder="Apply Promocode" name="promocode" id="promocode" autocomplete="off" readonly="">
-                                <button class="btn" id="ajaxSubmit">Apply</button>
-                            </div>
-                            </form>
-                            <p data-toggle="modal" data-target="#staticBackdrop">Select Promocode</p>
-                        </div>
-                    @endif
-                    
+{{--                    @if (Session::has('offer_amount'))--}}
+{{--                        <div class="promo-code">--}}
+{{--                            <form>--}}
+{{--                            <div class="promo-wrap">--}}
+{{--                                <input type="text" name="removepromocode" id="removepromocode" autocomplete="off" readonly="" value="{{Session::get('offer_code')}}">--}}
+{{--                                <button class="btn" id="ajaxRemove">Remove</button>--}}
+{{--                            </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="promo-code">--}}
+{{--                            <form>--}}
+{{--                            <div class="promo-wrap">--}}
+{{--                                <input type="text" placeholder="Apply Promocode" name="promocode" id="promocode" autocomplete="off" readonly="">--}}
+{{--                                <button class="btn" id="ajaxSubmit">Apply</button>--}}
+{{--                            </div>--}}
+{{--                            </form>--}}
+{{--                            <p data-toggle="modal" data-target="#staticBackdrop">Select Promocode</p>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+
                 </div>
                 <div class="col-lg-4">
-                    <?php 
+                    <?php
                     $order_total = array_sum(array_column(@$data, 'total_price'));
-                    $taxprice = array_sum(array_column(@$data, 'total_price'))*$taxval->tax/100; 
+                    $taxprice = array_sum(array_column(@$data, 'total_price'))*$taxval->tax/100;
                     $total = array_sum(array_column(@$data, 'total_price'))+$taxprice+$taxval->delivery_charge;
                     ?>
                     <div class="cart-summary">
@@ -102,7 +102,7 @@
 
                         @if (Session::has('offer_amount'))
 
-                            <p class="cart-total">Total Amount 
+                            <p class="cart-total">Total Amount
                                 <span id="total_amount">
                                     {{$taxval->currency}}{{number_format($order_total+$taxval->delivery_charge+$taxprice-$order_total*Session::get('offer_amount')/100, 2)}}
                                 </span>
@@ -117,14 +117,14 @@
                             <label for="cart-delivery">
                                 <input type="radio" name="cart-delivery" id="cart-delivery" checked value="1">
                                 <div class="cart-delivery-type-box">
-                                    <img src="{!! asset('public/front/images/pickup-truck.png') !!}" height="40" width="40" alt="">                                   
+                                    <img src="{!! asset('/front/images/pickup-truck.png') !!}" height="40" width="40" alt="">
                                     <p>Delivery</p>
                                 </div>
                             </label>
                             <label for="cart-pickup">
                                 <input type="radio" name="cart-delivery" id="cart-pickup" value="2">
                                 <div class="cart-delivery-type-box">
-                                    <img src="{!! asset('public/front/images/delivery.png') !!}" height="40" width="40" alt="">
+                                    <img src="{!! asset('/front/images/delivery.png') !!}" height="40" width="40" alt="">
                                     <p>Pickup</p>
                                 </div>
                             </label>
@@ -133,45 +133,45 @@
                         @if (env('Environment') == 'sendbox')
                             <span style="color: red;" id="dummy-msg">You can not change this address in Demo version. When you'll purchase. it will work properly.</span>
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Enter a location" name="address" size="50" id="address" value="New York, NY, USA" required="" readonly="" autocomplete="on" > 
+                                <input type="text" placeholder="Enter a location" name="address" size="50" id="address" value="New York, NY, USA" required="" readonly="" autocomplete="on" >
                                 <input type="hidden" id="lat" name="lat" value="40.7127753" />
                                 <input type="hidden" id="lang" name="lang" value="-74.0059728" />
-                                <input type="hidden" id="city" name="city" placeholder="city" value="New York" /> 
-                                <input type="hidden" id="state" name="state" placeholder="state" value="NY" /> 
+                                <input type="hidden" id="city" name="city" placeholder="city" value="New York" />
+                                <input type="hidden" id="state" name="state" placeholder="state" value="NY" />
                                 <input type="hidden" id="country" name="country" placeholder="country" value="US" />
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" value="10001" readonly="" /> 
+                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" value="10001" readonly="" />
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required="" value="4043" readonly=""> 
+                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required="" value="4043" readonly="">
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="" value="Central Park" readonly=""> 
+                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="" value="Central Park" readonly="">
                             </div>
                         @else
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Delivery address" name="address" size="50" id="address" required="" autocomplete="on" > 
+                                <input type="text" placeholder="Delivery address" name="address" size="50" id="address" required="" autocomplete="on" >
                                 <input type="hidden" id="lat" name="lat" />
                                 <input type="hidden" id="lang" name="lang" />
-                                <input type="hidden" id="city" name="city" placeholder="city" /> 
-                                <input type="hidden" id="state" name="state" placeholder="state" /> 
+                                <input type="hidden" id="city" name="city" placeholder="city" />
+                                <input type="hidden" id="state" name="state" placeholder="state" />
                                 <input type="hidden" id="country" name="country" placeholder="country" />
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" /> 
+                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" />
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required=""> 
+                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required="">
                             </div>
 
                             <div class="promo-wrap open">
-                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required=""> 
+                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="">
                             </div>
                         @endif
 
@@ -209,7 +209,7 @@
                             <input type="hidden" name="getpromo" id="getpromo" value="">
                         @endif
 
-                        <div class="mt-3">                            
+                        <div class="mt-3">
                             <button type="button" style="width: 100%;" class="btn open comman" onclick="WalletOrder()">My Wallet ({{$taxval->currency}}{{number_format($userinfo->wallet, 2)}})</button>
                         </div>
 
@@ -221,38 +221,38 @@
                                 </div>
                             @endif
 
-                            @if ($paymentdata->payment_name == "RazorPay")
-                                <div class="mt-3">
-                                    <button type="button" style="width: 100%;" class="btn buy_now open comman">RazorPay Payment</button>
-                                </div>
+{{--                            @if ($paymentdata->payment_name == "RazorPay")--}}
+{{--                                <div class="mt-3">--}}
+{{--                                    <button type="button" style="width: 100%;" class="btn buy_now open comman">RazorPay Payment</button>--}}
+{{--                                </div>--}}
 
-                                @if($paymentdata->environment=='1')
-                                    <input type="hidden" name="razorpay" id="razorpay" value="{{$paymentdata->test_public_key}}">
-                                @else
-                                    <input type="hidden" name="razorpay" id="razorpay" value="{{$paymentdata->live_public_key}}">
-                                @endif
+{{--                                @if($paymentdata->environment=='1')--}}
+{{--                                    <input type="hidden" name="razorpay" id="razorpay" value="{{$paymentdata->test_public_key}}">--}}
+{{--                                @else--}}
+{{--                                    <input type="hidden" name="razorpay" id="razorpay" value="{{$paymentdata->live_public_key}}">--}}
+{{--                                @endif--}}
 
-                            @endif
+{{--                            @endif--}}
 
-                            @if ($paymentdata->payment_name == "Stripe")
-                                <div class="mt-3">
-                                    <button id="customButton" class="btn comman" style="display: none; width: 100%;">Stripe Payment</button>
-                                    <button class="btn open stripe comman" style="width: 100%;" onclick="stripe()">Stripe Payment</button>
-                                </div>
+{{--                            @if ($paymentdata->payment_name == "Stripe")--}}
+{{--                                <div class="mt-3">--}}
+{{--                                    <button id="customButton" class="btn comman" style="display: none; width: 100%;">Stripe Payment</button>--}}
+{{--                                    <button class="btn open stripe comman" style="width: 100%;" onclick="stripe()">Stripe Payment</button>--}}
+{{--                                </div>--}}
 
-                                @if($paymentdata->environment=='1')
-                                    <input type="hidden" name="stripe" id="stripe" value="{{$paymentdata->test_public_key}}">
-                                @else
-                                    <input type="hidden" name="stripe" id="stripe" value="{{$paymentdata->live_public_key}}">
-                                @endif
-                            @endif
+{{--                                @if($paymentdata->environment=='1')--}}
+{{--                                    <input type="hidden" name="stripe" id="stripe" value="{{$paymentdata->test_public_key}}">--}}
+{{--                                @else--}}
+{{--                                    <input type="hidden" name="stripe" id="stripe" value="{{$paymentdata->live_public_key}}">--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
 
                         @endforeach
 
                     </div>
                 </div>
             @endif
-            
+
         </div>
     </div>
 </section>
@@ -328,10 +328,10 @@
             url:"{{ URL::to('stripe-payment/charge') }}",
             data: {
                 order_total : paid_amount ,
-                address: address , 
-                promocode: promocode , 
-                discount_amount: discount_amount , 
-                discount_pr: discount_pr , 
+                address: address ,
+                promocode: promocode ,
+                discount_amount: discount_amount ,
+                discount_pr: discount_pr ,
                 tax : tax,
                 tax_amount : tax_amount,
                 delivery_charge : delivery_charge ,
@@ -346,7 +346,7 @@
                 state : state,
                 country : country,
                 stripeToken : token,
-            }, 
+            },
             method: 'POST',
             success: function(response) {
                 $('#preloader').hide();
@@ -391,7 +391,7 @@
 
         if (order_type == "1") {
             if (address == "" && lat == "" && lang == "") {
-                $('#ermsg').text('Address is required');            
+                $('#ermsg').text('Address is required');
                 $('#error-msg').addClass('alert-danger');
                 $('#error-msg').css("display","block");
 
@@ -505,7 +505,7 @@
 
             for (var i = 0; i < place.address_components.length; i++) {
                 var addressType = place.address_components[i].types[0];
-                
+
                 if (addressType == "administrative_area_level_1") {
                   document.getElementById("state").value = place.address_components[i].short_name;
                 }
@@ -570,7 +570,7 @@
                 $("#dummy-msg").hide();
                 $(".stripe").hide();
                 $("#customButton").show();
-            
+
                 var order_total = parseFloat($('#order_total').val());
                 var delivery_charge = parseFloat($('#delivery_charge').val());
                 var tax_amount =  parseFloat($('#tax_amount').val());
@@ -594,7 +594,7 @@
      headers: {
          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
      }
-   }); 
+   });
    $('body').on('click', '.buy_now', function(e){
     var order_total = parseFloat($('#order_total').val());
     var tax = parseFloat($('#tax').val());
@@ -615,7 +615,7 @@
 
     if (order_type == "1") {
         if (address == "" && lat == "" && lang == "") {
-            $('#ermsg').text('Address is required');            
+            $('#ermsg').text('Address is required');
             $('#error-msg').addClass('alert-danger');
             $('#error-msg').css("display","block");
 
@@ -685,11 +685,11 @@
                                     dataType: 'json',
                                     data: {
                                         order_total : paid_amount ,
-                                        razorpay_payment_id: response.razorpay_payment_id , 
-                                        address: address , 
-                                        promocode: promocode , 
-                                        discount_amount: discount_amount , 
-                                        discount_pr: discount_pr , 
+                                        razorpay_payment_id: response.razorpay_payment_id ,
+                                        address: address ,
+                                        promocode: promocode ,
+                                        discount_amount: discount_amount ,
+                                        discount_pr: discount_pr ,
                                         tax : tax ,
                                         tax_amount : tax_amount ,
                                         delivery_charge : delivery_charge ,
@@ -700,13 +700,13 @@
                                         building : building,
                                         landmark : landmark,
                                         postal_code : postal_code,
-                                    }, 
+                                    },
                                     success: function (msg) {
                                     $('#preloader').hide();
                                     window.location.href = SITEURL + '/orders';
                                 }
                             });
-                           
+
                         },
                             "prefill": {
                                 "contact": '{{@$userinfo->mobile}}',
@@ -760,11 +760,11 @@
                                 dataType: 'json',
                                 data: {
                                     order_total : paid_amount ,
-                                    razorpay_payment_id: response.razorpay_payment_id , 
-                                    address: address , 
-                                    promocode: promocode , 
-                                    discount_amount: discount_amount , 
-                                    discount_pr: discount_pr , 
+                                    razorpay_payment_id: response.razorpay_payment_id ,
+                                    address: address ,
+                                    promocode: promocode ,
+                                    discount_amount: discount_amount ,
+                                    discount_pr: discount_pr ,
                                     tax : tax ,
                                     tax_amount : tax_amount ,
                                     delivery_charge : '0.00',
@@ -775,13 +775,13 @@
                                     building : building,
                                     landmark : landmark,
                                     postal_code : postal_code,
-                                }, 
+                                },
                                 success: function (msg) {
                                 $('#preloader').hide();
                                 window.location.href = SITEURL + '/orders';
                             }
                         });
-                       
+
                     },
                         "prefill": {
                             "contact": '{{@$userinfo->mobile}}',
@@ -813,8 +813,8 @@
     rzp1.open();
     e.preventDefault();
 }*/
-    
-    function WalletOrder() 
+
+    function WalletOrder()
     {
         var total_order = parseFloat($('#order_total').val());
         var tax = parseFloat($('#tax').val());
@@ -842,10 +842,10 @@
             data: {
                 order_total : paid_amount ,
                 total_order : total_order ,
-                address: address , 
-                promocode: promocode , 
-                discount_amount: discount_amount , 
-                discount_pr: discount_pr , 
+                address: address ,
+                promocode: promocode ,
+                discount_amount: discount_amount ,
+                discount_pr: discount_pr ,
                 tax : tax,
                 tax_amount : tax_amount,
                 delivery_charge : delivery_charge ,
@@ -856,7 +856,7 @@
                 postal_code : postal_code,
                 building : building,
                 landmark : landmark,
-            }, 
+            },
             method: 'POST',
             success: function(response) {
                 $('#preloader').hide();
@@ -879,7 +879,7 @@
         });
     }
 
-    function CashonDelivery() 
+    function CashonDelivery()
     {
         var total_order = parseFloat($('#order_total').val());
         var tax = parseFloat($('#tax').val());
@@ -907,10 +907,10 @@
             data: {
                 order_total : paid_amount ,
                 total_order : total_order ,
-                address: address , 
-                promocode: promocode , 
-                discount_amount: discount_amount , 
-                discount_pr: discount_pr , 
+                address: address ,
+                promocode: promocode ,
+                discount_amount: discount_amount ,
+                discount_pr: discount_pr ,
                 tax : tax,
                 tax_amount : tax_amount,
                 delivery_charge : delivery_charge ,
@@ -921,7 +921,7 @@
                 postal_code : postal_code,
                 building : building,
                 landmark : landmark,
-            }, 
+            },
             method: 'POST',
             success: function(response) {
                 $('#preloader').hide();
@@ -1070,12 +1070,12 @@ jQuery('#ajaxRemove').click(function(e){
                 location.reload();
             } else {
 
-            }            
+            }
         }});
     });
 });
 
-function qtyupdate(cart_id,item_id,type) 
+function qtyupdate(cart_id,item_id,type)
 {
     var qtys= parseInt($("#number_"+cart_id).val());
     var max_qty = $("#max_qty").val();
@@ -1200,7 +1200,7 @@ function RemoveCart(cart_id) {
 }
 
 $('body').on('click','.btn-copy',function(e) {
-            
+
     var text = $(this).attr('data-id');
     // navigator.clipboard.writeText(text).then(function() {
         $('#promocode').val(text);
@@ -1208,6 +1208,6 @@ $('body').on('click','.btn-copy',function(e) {
     // }, function(err) {
          // console.error('Async: Could not copy text: ', err);
     // });
-    
+
 });
 </script>
