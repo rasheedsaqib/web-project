@@ -71,9 +71,9 @@ Route::group(['namespace' => 'front'], function () {
 	Route::post('/email-verification', 'UserController@email_verification');
 
 	// Get Route For Show Payment Form
-	Route::get('/paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
-	// Post Route For Makw Payment Request
-	Route::post('/payment', 'RazorpayController@payment')->name('payment');
+//	Route::get('/paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
+//	// Post Route For Makw Payment Request
+//	Route::post('/payment', 'RazorpayController@payment')->name('payment');
 
 	Route::post('stripe-payment/charge', 'CheckoutController@charge');
 

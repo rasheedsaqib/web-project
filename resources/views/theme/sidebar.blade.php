@@ -55,11 +55,11 @@
                     <i class="fa fa-clock-o"></i><span class="nav-text">Working Hours</span>
                 </a>
             </li>
-            <li>
-                <a href="{{URL::to('/admin/payment')}}" aria-expanded="false">
-                    <i class="fa fa-usd"></i><span class="nav-text">Payment Methods</span>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{URL::to('/admin/payment')}}" aria-expanded="false">--}}
+{{--                    <i class="fa fa-usd"></i><span class="nav-text">Payment Methods</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{URL::to('/admin/orders')}}" aria-expanded="false">
                     <i class="fa fa-shopping-cart"></i><span class="nav-text">Orders</span>
