@@ -168,13 +168,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 		Route::get('reviews/list', 'RattingController@list');
 		Route::post('reviews/destroy', 'RattingController@destroy');
 
-		Route::get('promocode', 'PromocodeController@index');
-		Route::post('promocode/store', 'PromocodeController@store');
-		Route::get('promocode/list', 'PromocodeController@list');
-		Route::post('promocode/show', 'PromocodeController@show');
-		Route::post('promocode/update', 'PromocodeController@update');
-		Route::post('promocode/status', 'PromocodeController@status');
-
 		Route::get('pincode', 'PincodeController@index');
 		Route::post('pincode/store', 'PincodeController@store');
 		Route::get('pincode/list', 'PincodeController@list');

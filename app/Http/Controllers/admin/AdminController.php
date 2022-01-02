@@ -36,13 +36,12 @@ class AdminController extends Controller
         $getorders = Order::all();
         $order_total = Order::where('status', '!=', '5')->where('status', '!=', '6')->sum('order_total');
         $order_tax = Order::where('status', '!=', '5')->where('status', '!=', '6')->sum('tax_amount');
-        $getpromocode = Promocode::all();
         $getusers = User::Where('type', '=', '2')->get();
         $driver = User::Where('type', '=', '3')->get();
         $banners = Banner::all();
         $getdriver = User::where('type', '3')->get();
         $todayorders = Order::with('users')->select('order.*', 'users.name')->leftJoin('users', 'order.driver_id', '=', 'users.id')->where('order.created_at', 'LIKE', '%' . date("Y-m-d") . '%')->get();
-        return view('home', compact('getcategory', 'getpincode', 'getitems', 'addons', 'getusers', 'driver', 'banners', 'getreview', 'getorders', 'order_total', 'order_tax', 'getpromocode', 'todayorders', 'getdriver'));
+        return view('home', compact('getcategory', 'getpincode', 'getitems', 'addons', 'getusers', 'driver', 'banners', 'getreview', 'getorders', 'order_total', 'order_tax', 'todayorders', 'getdriver'));
     }
 
     public function getorder()

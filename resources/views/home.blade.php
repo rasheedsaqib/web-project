@@ -86,19 +86,6 @@
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-2">
-                    <a href="{{URL::to('/admin/promocode')}}">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Promocodes</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">{{count($getpromocode)}}</h2>
-                            </div>
-                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i class="fa fa-gift"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
                 <div class="card gradient-1">
                     <a href="{{URL::to('/admin/driver')}}">
                         <div class="card-body">
