@@ -12,11 +12,6 @@ use App\Cart;
 use Validator;
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $getcategory = Category::where('is_deleted','2')->get();
@@ -146,10 +141,10 @@ class CategoryController extends Controller
                     $category->image=$image;
 
                     unlink(public_path('images/category/'.$request->old_img));
-                }            
+                }
             }
             $category->category_name =$request->category_name;
-            $category->save();           
+            $category->save();
 
             $success_output = 'Category updated Successfully!';
         }

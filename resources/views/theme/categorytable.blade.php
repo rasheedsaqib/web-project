@@ -15,7 +15,7 @@
         ?>
         <tr id="dataid{{$category->id}}">
             <td>{{$category->id}}</td>
-            <td><img src='{!! asset("public/images/category/".$category->image) !!}' class='img-fluid' style='max-height: 50px;'></td>
+            <td><img src='{!! asset("images/category/".$category->image) !!}' class='img-fluid' style='max-height: 50px;'></td>
             <td>{{$category->category_name}}</td>
             <td>{{$category->created_at}}</td>
             @if (env('Environment') == 'sendbox')

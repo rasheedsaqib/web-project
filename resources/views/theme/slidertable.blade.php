@@ -15,7 +15,7 @@
         ?>
         <tr id="dataid{{$slider->id}}">
             <td>{{$slider->id}}</td>
-            <td><img src='{!! asset("public/images/slider/".$slider->image) !!}' class='img-fluid' style='max-height: 50px;'></td>
+            <td><img src='{!! asset("images/slider/".$slider->image) !!}' class='img-fluid' style='max-height: 50px;'></td>
             <td>{{$slider->title}}</td>
             <td>{{$slider->description}}</td>
             <td>{{$slider->created_at}}</td>
@@ -32,7 +32,7 @@
                         <a href="#" data-toggle="tooltip" data-placement="top" onclick="DeleteData('{{$slider->id}}')" title="" data-original-title="Delete">
                             <span class="badge badge-danger">Delete</span>
                         </a>
-                    @endif                    
+                    @endif
                 </span>
             </td>
         </tr>
