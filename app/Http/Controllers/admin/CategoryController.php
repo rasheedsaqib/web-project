@@ -60,7 +60,7 @@ class CategoryController extends Controller
         else
         {
             $image = 'category-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move('public/images/category', $image);
+            $request->image->move('images/category', $image);
 
             $category = new Category;
             $category->image =$image;
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $category = Category::findorFail($request->id);
         $getcategory = Category::where('id',$request->id)->first();
         if($getcategory->image){
-            $getcategory->img=url('public/images/category/'.$getcategory->image);
+            $getcategory->img=url('images/category/'.$getcategory->image);
         }
         return response()->json(['ResponseCode' => 1, 'ResponseText' => 'Category fetch successfully', 'ResponseData' => $getcategory], 200);
     }
@@ -137,7 +137,7 @@ class CategoryController extends Controller
                 if($request->hasFile('image')){
                     $image = $request->file('image');
                     $image = 'category-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-                    $request->image->move('public/images/category', $image);
+                    $request->image->move('images/category', $image);
                     $category->image=$image;
 
                     unlink(public_path('images/category/'.$request->old_img));
