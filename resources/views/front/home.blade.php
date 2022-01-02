@@ -142,17 +142,13 @@
                 <p>Search for Restaurant App in the App Store and Google Play Store. <br>Enjoy your food on the go!</p>
             </div>
             <div class="col-lg-6">
-                @if($getabout->ios != "")
-                    <a href="{{$getabout->ios}}" class="our-app-icon" target="_blank">
-                        <img src="{!! asset('front/images/apple-store.svg') !!}" alt="">
-                    </a>
-                @endif
+                <a href="#" class="our-app-icon">
+                    <img src="{!! asset('front/images/apple-store.svg') !!}" alt="">
+                </a>
 
-                @if($getabout->android != "")
-                    <a href="{{$getabout->android}}" class="our-app-icon" target="_blank">
-                        <img src="{!! asset('front/images/play-store.png') !!}" alt="">
-                    </a>
-                @endif
+                <a href="#" class="our-app-icon">
+                    <img src="{!! asset('front/images/play-store.png') !!}" alt="">
+                </a>
             </div>
         </div>
     </div>
@@ -164,20 +160,20 @@
             <div class="col-lg-6">
                 <h2 class="sec-head">Contact us</h2>
 
-                    <a href="#" class="contact-box">
-                        <i class="fas fa-phone-alt"></i>
-                        <p>+92 123456789</p>
-                    </a>
+                <a href="#" class="contact-box">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+92 123456789</p>
+                </a>
 
-                    <a href="#" class="contact-box">
-                        <i class="fas fa-envelope"></i>
-                        <p>john@example.com</p>
-                    </a>
+                <a href="#" class="contact-box">
+                    <i class="fas fa-envelope"></i>
+                    <p>john@example.com</p>
+                </a>
 
-                    <div class="contact-box">
-                        <i class="fas fa-home"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, sunt!</p>
-                    </div>
+                <div class="contact-box">
+                    <i class="fas fa-home"></i>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, sunt!</p>
+                </div>
             </div>
             <div class="col-lg-6">
                 <form class="contact-form" id="contactform" method="post">

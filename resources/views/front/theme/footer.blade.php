@@ -126,38 +126,15 @@
             <p>{!! \Illuminate\Support\Str::limit(htmlspecialchars($getabout->about_content, ENT_QUOTES, 'UTF-8'), $limit = 200, $end = '...') !!}</p>
         </div>
         <div class="footer-socialmedia">
-            @if($getabout->fb != "")
-                <a href="{{$getabout->fb}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            @endif
-            @if($getabout->twitter != "")
-                <a href="{{$getabout->twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>
-            @endif
-            @if($getabout->insta != "")
-                <a href="{{$getabout->insta}}" target="_blank"><i class="fab fa-instagram"></i></a>
-            @endif
-        </div>
-        <div class="download-app">
-            <p>Download the App</p>
-            <div class="download-app-wrap">
-                @if($getabout->ios != "")
-                    <div class="download-app-icon">
-                        <a href="{{$getabout->ios}}" target="_blank"><img
-                                src="{!! asset('public/front/images/apple-store.svg') !!}" alt=""></a>
-                    </div>
-                @endif
-                @if($getabout->android != "")
-                    <div class="download-app-icon">
-                        <a href="{{$getabout->android}}" target="_blank"><img
-                                src="{!! asset('public/front/images/play-store.png') !!}" alt=""></a>
-                    </div>
-                @endif
-            </div>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
     <div class="copy-right text-center">
         <a href="{{URL::to('/privacy')}}" style="color: #fff;"> Privacy Policy </a>
-        <p>{{$getabout->copyright}} <br> Designed & Developed by <a href="https://infotechgravity.com" target="_blank"
-                                                                    style="color: #000;"><b>Gravity Infotech</b>.</a>
+        <p>Designed & Developed for <a href="#" target="_blank"
+                                       style="color: #000;"><b>Web Project</b>.</a>
         </p>
     </div>
 </footer>
@@ -192,10 +169,12 @@
         var tooltip = document.getElementById("myTooltip");
         tooltip.innerHTML = "Copied";
     }
+
     function outFunc() {
         var tooltip = document.getElementById("myTooltip");
         tooltip.innerHTML = "Copy to clipboard";
     }
+
     function changePassword() {
         var oldpassword = $("#oldpassword").val();
         var newpassword = $("#newpassword").val();
@@ -228,10 +207,12 @@
             }
         });
     }
+
     var ratting = "";
     $('.rating input').on('click', function () {
         ratting = $(this).val();
     });
+
     function addReview() {
         var comment = $("#comment").val();
         var user_id = $("#user_id").val();
@@ -263,6 +244,7 @@
             }
         });
     }
+
     function contact() {
         var firstname = $("#firstname").val();
         var lastname = $("#lastname").val();
@@ -304,6 +286,7 @@
             }
         })
     };
+
     function AddtoCart(id, user_id) {
         var price = $('#price').val();
         var item_notes = $('#item_notes').val();
@@ -351,6 +334,7 @@
             }
         })
     };
+
     function Unfavorite(id, user_id) {
         swal({
                 title: "Are you sure?",
@@ -407,6 +391,7 @@
                 }
             });
     }
+
     function MakeFavorite(id, user_id) {
         swal({
                 title: "Are you sure?",
@@ -463,6 +448,7 @@
                 }
             });
     };
+
     function OrderCancel(id) {
         swal({
                 title: "Are you sure?",
@@ -518,6 +504,7 @@
                 }
             });
     };
+
     function codeAddress() {
         $.ajax({
             headers: {
@@ -535,6 +522,7 @@
             }
         });
     }
+
     window.onload = codeAddress;
 </script>
 @yield('script')

@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers\admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
-use App\Category;
-use App\Item;
 use App\Addons;
 use App\Cart;
+use App\Category;
+use App\Http\Controllers\Controller;
+use App\Item;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Validator;
+
 class CategoryController extends Controller
 {
     public function index()
     {
-        $getcategory = Category::where('is_deleted','2')->get();
-        return view('category',compact('getcategory'));
+        $getcategory = Category::where('is_deleted', '2')->get();
+        return view('category', compact('getcategory'));
     }
 
     public function list()
     {
-        $getcategory = Category::where('is_deleted','2')->get();
-        return view('theme.categorytable',compact('getcategory'));
+        $getcategory = Category::where('is_deleted', '2')->get();
+        return view('theme.categorytable', compact('getcategory'));
     }
 
     /**
@@ -37,40 +38,36 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $s
+     * @param \Illuminate\Http\Request $s
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $validation = Validator::make($request->all(),[
-            'category_name' => ['required',Rule::unique('categories')->where(function ($query) use ($request) {
+        $validation = Validator::make($request->all(), [
+            'category_name' => ['required', Rule::unique('categories')->where(function ($query) use ($request) {
                 return $query->where('is_available', '1');
             })],
             'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
         $error_array = array();
         $success_output = '';
-        if ($validation->fails())
-        {
-            foreach($validation->messages()->getMessages() as $field_name => $messages)
-            {
+        if ($validation->fails()) {
+            foreach ($validation->messages()->getMessages() as $field_name => $messages) {
                 $error_array[] = $messages;
             }
-        }
-        else
-        {
+        } else {
             $image = 'category-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
             $request->image->move('images/category', $image);
 
             $category = new Category;
-            $category->image =$image;
-            $category->category_name =$request->category_name;
+            $category->image = $image;
+            $category->category_name = $request->category_name;
             $category->save();
             $success_output = 'Category Added Successfully!';
         }
         $output = array(
-            'error'     =>  $error_array,
-            'success'   =>  $success_output
+            'error' => $error_array,
+            'success' => $success_output
         );
         echo json_encode($output);
     }
@@ -78,15 +75,15 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
     {
         $category = Category::findorFail($request->id);
-        $getcategory = Category::where('id',$request->id)->first();
-        if($getcategory->image){
-            $getcategory->img=url('images/category/'.$getcategory->image);
+        $getcategory = Category::where('id', $request->id)->first();
+        if ($getcategory->image) {
+            $getcategory->img = url('images/category/' . $getcategory->image);
         }
         return response()->json(['ResponseCode' => 1, 'ResponseText' => 'Category fetch successfully', 'ResponseData' => $getcategory], 200);
     }
@@ -94,7 +91,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $req)
@@ -105,52 +102,48 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
 
-        $validation = Validator::make($request->all(),[
-          'category_name' => 'required|unique:categories,category_name,' . $request->id,
-          'image' => 'image|mimes:jpeg,png,jpg',
+        $validation = Validator::make($request->all(), [
+            'category_name' => 'required|unique:categories,category_name,' . $request->id,
+            'image' => 'image|mimes:jpeg,png,jpg',
         ]);
 
         $error_array = array();
         $success_output = '';
-        if ($validation->fails())
-        {
-            foreach($validation->messages()->getMessages() as $field_name => $messages)
-            {
+        if ($validation->fails()) {
+            foreach ($validation->messages()->getMessages() as $field_name => $messages) {
                 $error_array[] = $messages;
             }
             // dd($error_array);
-        }
-        else
-        {
+        } else {
             $category = new Category;
             $category->exists = true;
             $category->id = $request->id;
 
-            if(isset($request->image)){
-                if($request->hasFile('image')){
+            if (isset($request->image)) {
+                if ($request->hasFile('image')) {
                     $image = $request->file('image');
                     $image = 'category-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
                     $request->image->move('images/category', $image);
-                    $category->image=$image;
+                    $category->image = $image;
 
-                    unlink(public_path('images/category/'.$request->old_img));
+                    unlink(public_path('images/category/' . $request->old_img));
                 }
             }
-            $category->category_name =$request->category_name;
+            $category->category_name = $request->category_name;
             $category->save();
 
             $success_output = 'Category updated Successfully!';
         }
         $output = array(
-            'error'     =>  $error_array,
-            'success'   =>  $success_output
+            'error' => $error_array,
+            'success' => $success_output
         );
         echo json_encode($output);
     }
@@ -158,19 +151,19 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function status(Request $request)
     {
-        $category = Category::where('id', $request->id)->update( array('is_available'=>$request->status) );
+        $category = Category::where('id', $request->id)->update(array('is_available' => $request->status));
         if ($category) {
-            $item = Item::where('cat_id', $request->id)->update( array('item_status'=>$request->status) );
+            $item = Item::where('cat_id', $request->id)->update(array('item_status' => $request->status));
             $items = Item::where('cat_id', $request->id)->get();
 
             foreach ($items as $value) {
                 $UpdateCart = Cart::where('item_id', $value['id'])
-                                    ->delete();
+                    ->delete();
             }
             return 1;
         } else {
@@ -180,15 +173,15 @@ class CategoryController extends Controller
 
     public function delete(Request $request)
     {
-        $category = Category::where('id', $request->id)->update( array('is_deleted'=>'1') );
+        $category = Category::where('id', $request->id)->update(array('is_deleted' => '1'));
         if ($category) {
-            $item = Item::where('cat_id', $request->id)->update( array('is_deleted'=>'1') );
-            $addons = Addons::where('cat_id', $request->id)->update( array('is_deleted'=>'1') );
+            $item = Item::where('cat_id', $request->id)->update(array('is_deleted' => '1'));
+            $addons = Addons::where('cat_id', $request->id)->update(array('is_deleted' => '1'));
             $items = Item::where('cat_id', $request->id)->get();
 
             foreach ($items as $value) {
                 $UpdateCart = Cart::where('item_id', $value['id'])
-                                    ->delete();
+                    ->delete();
             }
             return 1;
         } else {
