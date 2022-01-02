@@ -442,19 +442,19 @@ class UserController extends Controller
 
             if (!empty($checkuser)) {
 //                if ($checkuser->otp == $request->otp) {
-                    $update = User::where('email', $request['email'])->update(['otp' => NULL, 'is_verified' => '1']);
+                $update = User::where('email', $request['email'])->update(['otp' => NULL, 'is_verified' => '1']);
 
-                    $cart = Cart::where('user_id', $checkuser->id)->count();
-                    session([
-                        'id' => $checkuser->id,
-                        'name' => $checkuser->name,
-                        'email' => $checkuser->email,
-                        'referral_code' => $checkuser->referral_code,
-                        'referral_amount' => $getdata->referral_amount,
-                        'profile_image' => 'unknown.png',
-                        'cart' => $cart,
-                    ]);
-                    return Redirect::to('/');
+                $cart = Cart::where('user_id', $checkuser->id)->count();
+                session([
+                    'id' => $checkuser->id,
+                    'name' => $checkuser->name,
+                    'email' => $checkuser->email,
+                    'referral_code' => $checkuser->referral_code,
+                    'referral_amount' => $getdata->referral_amount,
+                    'profile_image' => 'unknown.png',
+                    'cart' => $cart,
+                ]);
+                return Redirect::to('/');
 //                } else {
 //                    return Redirect::to('/');
 //                }
@@ -478,10 +478,10 @@ class UserController extends Controller
                 $title = 'Email Verification Code';
                 $email = Session::get('email');
                 $data = ['title' => $title, 'email' => $email, 'otp' => $otp];
-                Mail::send('Email.emailverification', $data, function ($message) use ($data) {
-                    $message->from(env('MAIL_USERNAME'))->subject($data['title']);
-                    $message->to($data['email']);
-                });
+//                Mail::send('Email.emailverification', $data, function ($message) use ($data) {
+//                    $message->from(env('MAIL_USERNAME'))->subject($data['title']);
+//                    $message->to($data['email']);
+//                });
             } catch (\Swift_TransportException $e) {
                 $response = $e->getMessage();
                 // return Redirect::back()->with('danger', $response);
