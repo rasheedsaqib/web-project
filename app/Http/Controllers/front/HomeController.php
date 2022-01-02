@@ -68,39 +68,6 @@ class HomeController extends Controller
         }
     }
 
-    public function checkpincode(Request $request)
-    {
-
-        $getdata = User::select('min_order_amount', 'max_order_amount', 'currency')->where('type', '1')
-            ->get()->first();
-
-        if ($request->postal_code != "") {
-            $pincode = Pincode::select('pincode')->where('pincode', $request->postal_code)
-                ->get()->first();
-            if (@$pincode['pincode'] == $request->postal_code) {
-                if (!empty($pincode)) {
-                    if ($getdata->min_order_amount > $request->order_total) {
-                        return response()->json(['status' => 0, 'message' => "Order amount must be between " . $getdata->currency . "" . $getdata->min_order_amount . " and " . $getdata->currency . "" . $getdata->max_order_amount . ""], 200);
-                    } elseif ($getdata->max_order_amount < $request->order_total) {
-                        return response()->json(['status' => 0, 'message' => "Order amount must be between " . $getdata->currency . "" . $getdata->min_order_amount . " and " . $getdata->currency . "" . $getdata->max_order_amount . ""], 200);
-                    } else {
-                        return response()->json(['status' => 1, 'message' => 'Pincode is available for delivery'], 200);
-                    }
-                }
-            } else {
-                return response()->json(['status' => 0, 'message' => 'Delivery is not available in your area'], 200);
-            }
-        } else {
-
-            if ($getdata->min_order_amount > $request->order_total) {
-                return response()->json(['status' => 0, 'message' => "Order amount must be between " . $getdata->currency . "" . $getdata->min_order_amount . " and " . $getdata->currency . "" . $getdata->max_order_amount . ""], 200);
-            } elseif ($getdata->max_order_amount < $request->order_total) {
-                return response()->json(['status' => 0, 'message' => "Order amount must be between " . $getdata->currency . "" . $getdata->min_order_amount . " and " . $getdata->currency . "" . $getdata->max_order_amount . ""], 200);
-            } else {
-                return response()->json(['status' => 1, 'message' => 'Ok'], 200);
-            }
-        }
-    }
 
     public function notallow()
     {

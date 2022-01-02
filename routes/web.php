@@ -29,7 +29,6 @@ Route::group(['namespace' => 'front'], function () {
 	Route::get('/', 'HomeController@index');
 	Route::get('/405', 'HomeController@notallow');
 	Route::post('/home/contact', 'HomeController@contact');
-	Route::post('/home/checkpincode', 'HomeController@checkpincode');
 
 	Route::get('/product', 'ItemController@index');
 	Route::get('/product-details/{id}', 'ItemController@productdetails');
@@ -168,12 +167,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 		Route::get('reviews/list', 'RattingController@list');
 		Route::post('reviews/destroy', 'RattingController@destroy');
 
-		Route::get('pincode', 'PincodeController@index');
-		Route::post('pincode/store', 'PincodeController@store');
-		Route::get('pincode/list', 'PincodeController@list');
-		Route::post('pincode/show', 'PincodeController@show');
-		Route::post('pincode/update', 'PincodeController@update');
-		Route::post('pincode/destroy', 'PincodeController@destroy');
+//		Route::get('pincode', 'PincodeController@index');
+//		Route::post('pincode/store', 'PincodeController@store');
+//		Route::get('pincode/list', 'PincodeController@list');
+//		Route::post('pincode/show', 'PincodeController@show');
+//		Route::post('pincode/update', 'PincodeController@update');
+//		Route::post('pincode/destroy', 'PincodeController@destroy');
 
 		Route::get('banner', 'BannerController@index');
 		Route::post('banner/store', 'BannerController@store');

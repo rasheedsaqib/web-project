@@ -36,11 +36,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{URL::to('/admin/pincode')}}" aria-expanded="false">
-                    <i class="fa fa-map-pin" aria-hidden="true"></i><span class="nav-text">Pincodes</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{URL::to('/admin/driver')}}" aria-expanded="false">
                     <i class="fa fa-car"></i><span class="nav-text">Drivers</span>
                 </a>
