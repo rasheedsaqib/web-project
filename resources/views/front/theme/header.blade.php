@@ -109,8 +109,8 @@
                                 <a class="dropdown-item" href="javascript:void(0)">Hello, {{Session::get('name') }}</a>
                                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#AddReview">Add
                                     Review</a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#Refer">Refer and
-                                    Earn</a>
+{{--                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#Refer">Refer and--}}
+{{--                                    Earn</a>--}}
                                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#ChangePasswordModal">Change
                                     Password</a>
                                 <a class="dropdown-item" href="{{URL::to('/logout')}}">Logout</a>

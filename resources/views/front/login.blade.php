@@ -46,12 +46,12 @@
             <input type="email" name="email" id="email" placeholder="Email" class="w-100" required="">
             <input type="password" name="password" id="password" placeholder="Password" class="w-100" required="">
             <button type="submit" class="btn w-100">Login</button>
-            <a href="{{ url('auth/google') }}" class="btn w-50 mt-3" style="background-color: #fff;">
-                <img src='{!! asset("front/images/ic_google.png") !!}' alt="">
-            </a>
-            <a href="{{ url('auth/facebook') }}" class="btn w-50 mt-3" style="background-color: #fff;">
-                <img src='{!! asset("front/images/ic_fb.png") !!}' alt="">
-            </a>
+{{--            <a href="{{ url('auth/google') }}" class="btn w-50 mt-3" style="background-color: #fff;">--}}
+{{--                <img src='{!! asset("front/images/ic_google.png") !!}' alt="">--}}
+{{--            </a>--}}
+{{--            <a href="{{ url('auth/facebook') }}" class="btn w-50 mt-3" style="background-color: #fff;">--}}
+{{--                <img src='{!! asset("front/images/ic_fb.png") !!}' alt="">--}}
+{{--            </a>--}}
             <p class="already">Don't have an account? <a href="{{URL::to('/signup')}}">Signup</a></p>
             <p class="already"><a href="{{URL::to('/forgot-password')}}">Forgot Password?</a></p>
             @if (\Session::has('danger'))

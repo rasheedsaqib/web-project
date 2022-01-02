@@ -139,14 +139,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 //		Route::get('manage-payment/{id}', 'PaymentController@managepayment');
 //		Route::post('payment/update', 'PaymentController@update');
 
-		Route::get('addons', 'AddonsController@index');
-		Route::post('addons/getitem', 'AddonsController@getitem');
-		Route::post('addons/store', 'AddonsController@store');
-		Route::get('addons/list', 'AddonsController@list');
-		Route::post('addons/show', 'AddonsController@show');
-		Route::post('addons/update', 'AddonsController@update');
-		Route::post('addons/status', 'AddonsController@status');
-		Route::post('addons/delete', 'AddonsController@delete');
+//		Route::get('addons', 'AddonsController@index');
+//		Route::post('addons/getitem', 'AddonsController@getitem');
+//		Route::post('addons/store', 'AddonsController@store');
+//		Route::get('addons/list', 'AddonsController@list');
+//		Route::post('addons/show', 'AddonsController@show');
+//		Route::post('addons/update', 'AddonsController@update');
+//		Route::post('addons/status', 'AddonsController@status');
+//		Route::post('addons/delete', 'AddonsController@delete');
 
 		Route::get('users', 'UserController@index');
 		Route::post('users/store', 'UserController@store');
@@ -174,24 +174,24 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 //		Route::post('pincode/update', 'PincodeController@update');
 //		Route::post('pincode/destroy', 'PincodeController@destroy');
 
-		Route::get('banner', 'BannerController@index');
-		Route::post('banner/store', 'BannerController@store');
-		Route::get('banner/list', 'BannerController@list');
-		Route::post('banner/show', 'BannerController@show');
-		Route::post('banner/update', 'BannerController@update');
-		Route::post('banner/destroy', 'BannerController@destroy');
+//		Route::get('banner', 'BannerController@index');
+//		Route::post('banner/store', 'BannerController@store');
+//		Route::get('banner/list', 'BannerController@list');
+//		Route::post('banner/show', 'BannerController@show');
+//		Route::post('banner/update', 'BannerController@update');
+//		Route::post('banner/destroy', 'BannerController@destroy');
 
 		Route::get('settings', 'AboutController@index');
 		Route::post('about/update', 'AboutController@update');
 
-		Route::get('contact', 'ContactController@index');
+//		Route::get('contact', 'ContactController@index');
 
-		Route::get('driver', 'DriverController@index');
-		Route::post('driver/store', 'DriverController@store');
-		Route::get('driver/list', 'DriverController@list');
-		Route::post('driver/show', 'DriverController@show');
-		Route::post('driver/update', 'DriverController@update');
-		Route::post('driver/status', 'DriverController@status');
+//		Route::get('driver', 'DriverController@index');
+//		Route::post('driver/store', 'DriverController@store');
+//		Route::get('driver/list', 'DriverController@list');
+//		Route::post('driver/show', 'DriverController@show');
+//		Route::post('driver/update', 'DriverController@update');
+//		Route::post('driver/status', 'DriverController@status');
 
 //		Route::get('report', 'ReportController@index');
 //		Route::get('report/list', 'ReportController@list');
@@ -200,12 +200,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 //		Route::post('report/update', 'ReportController@update');
 //		Route::post('report/assign', 'ReportController@assign');
 
-		Route::get('time', 'TimeController@index');
-		Route::post('time/store', 'TimeController@store');
-		Route::get('time/list', 'TimeController@list');
-		Route::post('time/show', 'TimeController@show');
-		Route::post('time/update', 'TimeController@update');
-		Route::post('time/destroy', 'TimeController@destroy');
+//		Route::get('time', 'TimeController@index');
+//		Route::post('time/store', 'TimeController@store');
+//		Route::get('time/list', 'TimeController@list');
+//		Route::post('time/show', 'TimeController@show');
+//		Route::post('time/update', 'TimeController@update');
+//		Route::post('time/destroy', 'TimeController@destroy');
 
 		Route::get('privacypolicy', 'PrivacyPolicyController@index');
 		Route::post('privacypolicy/update', 'PrivacyPolicyController@update');

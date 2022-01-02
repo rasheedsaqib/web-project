@@ -163,26 +163,21 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h2 class="sec-head">Contact us</h2>
-                @if($getabout->mobile != "")
-                    <a href="tel:{{$getabout->mobile}}" class="contact-box">
+
+                    <a href="#" class="contact-box">
                         <i class="fas fa-phone-alt"></i>
-                        <p>{{$getabout->mobile}}</p>
+                        <p>+92 123456789</p>
                     </a>
-                @endif
 
-                @if($getabout->email != "")
-                    <a href="mailto:{{$getabout->email}}" class="contact-box">
+                    <a href="#" class="contact-box">
                         <i class="fas fa-envelope"></i>
-                        <p>{{$getabout->email}}</p>
+                        <p>john@example.com</p>
                     </a>
-                @endif
 
-                @if($getabout->address != "")
                     <div class="contact-box">
                         <i class="fas fa-home"></i>
-                        <p>{{$getabout->address}}</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, sunt!</p>
                     </div>
-                @endif
             </div>
             <div class="col-lg-6">
                 <form class="contact-form" id="contactform" method="post">

@@ -76,22 +76,22 @@
         </div>
         <form action="{{ URL::to('/signup/signup') }}" method="post">
             @csrf
-            @if (Session::get('facebook_id') OR Session::get('google_id'))
-                <input type="text" name="name" placeholder="Full name" class="w-100" value="{{Session::get('name')}}">
-                <input type="text" name="email" placeholder="Email" class="w-50" value="{{ Session::get('email') }}"
-                       readonly="">
-                <input type="text" name="mobile" placeholder="Mobile" class="w-50" value="{{ old('mobile') }}">
-                <input type="text" name="referral_code" placeholder="Referral code (Optional)" class="w-100"
-                       value="{{ Request()->referral_code }}">
-            @else
+{{--            @if (Session::get('facebook_id') OR Session::get('google_id'))--}}
+{{--                <input type="text" name="name" placeholder="Full name" class="w-100" value="{{Session::get('name')}}">--}}
+{{--                <input type="text" name="email" placeholder="Email" class="w-50" value="{{ Session::get('email') }}"--}}
+{{--                       readonly="">--}}
+{{--                <input type="text" name="mobile" placeholder="Mobile" class="w-50" value="{{ old('mobile') }}">--}}
+{{--                <input type="text" name="referral_code" placeholder="Referral code (Optional)" class="w-100"--}}
+{{--                       value="{{ Request()->referral_code }}">--}}
+{{--            @else--}}
                 <input type="text" name="name" placeholder="Full name" class="w-100" value="{{ old('name') }}">
                 <input type="text" name="email" placeholder="Email" class="w-50" value="{{ old('email') }}">
                 <input type="text" name="mobile" placeholder="Mobile" class="w-50" value="{{ old('mobile') }}">
                 <input type="password" name="password" placeholder="Password" class="w-50">
                 <input type="password" name="password_confirmation" placeholder="Confirm password" class="w-50">
-                <input type="text" name="referral_code" placeholder="Referral code (Optional)" class="w-100"
-                       value="{{ Request()->referral_code }}">
-            @endif
+{{--                <input type="text" name="referral_code" placeholder="Referral code (Optional)" class="w-100"--}}
+{{--                       value="{{ Request()->referral_code }}">--}}
+{{--            @endif--}}
             <label class="accept-check w-100" for="accept">
                 <input type="checkbox" name="accept" id="accept" required="">
                 <p class="already-p">I accept the<a href="{{URL::to('/terms')}}"> terms & conditions </a></p>

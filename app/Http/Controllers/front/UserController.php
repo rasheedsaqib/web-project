@@ -441,7 +441,7 @@ class UserController extends Controller
             $getdata = User::select('referral_amount')->where('type', '1')->first();
 
             if (!empty($checkuser)) {
-                if ($checkuser->otp == $request->otp) {
+//                if ($checkuser->otp == $request->otp) {
                     $update = User::where('email', $request['email'])->update(['otp' => NULL, 'is_verified' => '1']);
 
                     $cart = Cart::where('user_id', $checkuser->id)->count();
@@ -455,9 +455,9 @@ class UserController extends Controller
                         'cart' => $cart,
                     ]);
                     return Redirect::to('/');
-                } else {
-                    return Redirect::to('/');
-                }
+//                } else {
+//                    return Redirect::to('/');
+//                }
             } else {
                 return Redirect::back()->with('danger', 'Invalid Email Address');
             }

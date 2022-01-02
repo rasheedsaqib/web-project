@@ -31,19 +31,19 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-3">
-                    <a href="{{URL::to('/admin/addons')}}">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Add-ons</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">{{count($addons)}}</h2>
-                            </div>
-                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i class="fa fa-plus"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+{{--            <div class="col-lg-3 col-sm-6">--}}
+{{--                <div class="card gradient-3">--}}
+{{--                    <a href="{{URL::to('/admin/addons')}}">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <h3 class="card-title text-white">Add-ons</h3>--}}
+{{--                            <div class="d-inline-block">--}}
+{{--                                <h2 class="text-white">{{count($addons)}}</h2>--}}
+{{--                            </div>--}}
+{{--                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i class="fa fa-plus"></i></span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="col-lg-3 col-sm-6">
                 <div class="card gradient-4">
                     <a href="{{URL::to('/admin/users')}}">
@@ -85,34 +85,34 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-1">
-                    <a href="{{URL::to('/admin/driver')}}">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Drivers</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">{{count($driver)}}</h2>
-                            </div>
-                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i class="fa fa-car"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+{{--            <div class="col-lg-3 col-sm-6">--}}
+{{--                <div class="card gradient-1">--}}
+{{--                    <a href="{{URL::to('/admin/driver')}}">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <h3 class="card-title text-white">Drivers</h3>--}}
+{{--                            <div class="d-inline-block">--}}
+{{--                                <h2 class="text-white">{{count($driver)}}</h2>--}}
+{{--                            </div>--}}
+{{--                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i class="fa fa-car"></i></span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-2">
-                    <a href="{{URL::to('/admin/orders')}}">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Tax</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">{{Auth::user()->currency}}{{ number_format($order_tax, 2) }}</h2>
-                            </div>
-                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i
-                                    class="fa fa-calculator"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+{{--            <div class="col-lg-3 col-sm-6">--}}
+{{--                <div class="card gradient-2">--}}
+{{--                    <a href="{{URL::to('/admin/orders')}}">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <h3 class="card-title text-white">Tax</h3>--}}
+{{--                            <div class="d-inline-block">--}}
+{{--                                <h2 class="text-white">{{Auth::user()->currency}}{{ number_format($order_tax, 2) }}</h2>--}}
+{{--                            </div>--}}
+{{--                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i--}}
+{{--                                    class="fa fa-calculator"></i></span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="col-lg-3 col-sm-6">
                 <div class="card gradient-3">
                     <a href="{{URL::to('/admin/orders')}}">
@@ -127,20 +127,20 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-4">
-                    <a href="{{URL::to('/admin/banner')}}">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Promotion Banners</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">{{count($banners)}}</h2>
-                            </div>
-                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i
-                                    class="fa fa-bullhorn"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+{{--            <div class="col-lg-3 col-sm-6">--}}
+{{--                <div class="card gradient-4">--}}
+{{--                    <a href="{{URL::to('/admin/banner')}}">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <h3 class="card-title text-white">Promotion Banners</h3>--}}
+{{--                            <div class="d-inline-block">--}}
+{{--                                <h2 class="text-white">{{count($banners)}}</h2>--}}
+{{--                            </div>--}}
+{{--                            <span class="float-right display-5 opacity-5" style="color:#fff;"><i--}}
+{{--                                    class="fa fa-bullhorn"></i></span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
         <div class="row">
