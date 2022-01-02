@@ -1,7 +1,7 @@
 <!--**********************************
     Sidebar start
 ***********************************-->
-<div class="nk-sidebar">           
+<div class="nk-sidebar">
     <div class="nk-nav-scroll">
         <ul class="metismenu" id="menu">
             <li class="nav-label">Dashboard</li>
@@ -75,11 +75,11 @@
                     <i class="fa fa-star"></i><span class="nav-text">Reviews</span>
                 </a>
             </li>
-            <li>
-                <a href="{{URL::to('/admin/report')}}" aria-expanded="false">
-                    <i class="fa fa-bar-chart"></i><span class="nav-text">Report</span>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{URL::to('/admin/report')}}" aria-expanded="false">--}}
+{{--                    <i class="fa fa-bar-chart"></i><span class="nav-text">Report</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{URL::to('/admin/contact')}}" aria-expanded="false">
                     <i class="fa fa-envelope"></i><span class="nav-text">Inquiries</span>

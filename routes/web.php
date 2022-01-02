@@ -201,12 +201,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 		Route::post('driver/update', 'DriverController@update');
 		Route::post('driver/status', 'DriverController@status');
 
-		Route::get('report', 'ReportController@index');
-		Route::get('report/list', 'ReportController@list');
-		Route::post('report/show', 'ReportController@show');
-		Route::post('report/destroy', 'ReportController@destroy');
-		Route::post('report/update', 'ReportController@update');
-		Route::post('report/assign', 'ReportController@assign');
+//		Route::get('report', 'ReportController@index');
+//		Route::get('report/list', 'ReportController@list');
+//		Route::post('report/show', 'ReportController@show');
+//		Route::post('report/destroy', 'ReportController@destroy');
+//		Route::post('report/update', 'ReportController@update');
+//		Route::post('report/assign', 'ReportController@assign');
 
 		Route::get('time', 'TimeController@index');
 		Route::post('time/store', 'TimeController@store');
