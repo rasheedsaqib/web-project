@@ -42,14 +42,14 @@ class OrderController extends Controller
         ->join('order','order_details.order_id','=','order.id')
         ->where('order_details.order_id',$request->id)->get();
 
-        if(count($orderdata) == 0){ 
-            abort(404); 
+        if(count($orderdata) == 0){
+            abort(404);
         } else {
             foreach ($orderdata as $value) {
                $arr = explode(',', $value['addons_id']);
                $value['addons']=Addons::whereIn('id',$arr)->get();
             };
-            
+
             $status=Order::select('order.driver_id','order.order_number',DB::raw('DATE_FORMAT(order.created_at, "%d %M %Y") as date'),'order.address','order.building','order.landmark','order.pincode','order.order_type','order.promocode','order.id','order.discount_amount','order.order_number','order.status','order.order_notes','order.tax','order.tax_amount','order.delivery_charge')->where('order.id',$request->id)
             ->get()->first();
 
@@ -99,17 +99,17 @@ class OrderController extends Controller
                 return response()->json(["status"=>0,"message"=>"Address is required"],200);
             }
 
-            if($request->lat == ""){
-                return response()->json(["status"=>0,"message"=>"Please select the address from suggestion"],200);
-            }
+//            if($request->lat == ""){
+//                return response()->json(["status"=>0,"message"=>"Please select the address from suggestion"],200);
+//            }
 
-            if($request->lang == ""){
-                return response()->json(["status"=>0,"message"=>"Please select the address from suggestion"],200);
-            }
+//            if($request->lang == ""){
+//                return response()->json(["status"=>0,"message"=>"Please select the address from suggestion"],200);
+//            }
 
-            if($request->postal_code == ""){
-                return response()->json(["status"=>0,"message"=>"Pincode is required"],200);
-            }
+//            if($request->postal_code == ""){
+//                return response()->json(["status"=>0,"message"=>"Pincode is required"],200);
+//            }
 
             if($request->building == ""){
                 return response()->json(["status"=>0,"message"=>"Door / Flat No. is required"],200);
@@ -118,10 +118,10 @@ class OrderController extends Controller
             if($request->landmark == ""){
                 return response()->json(["status"=>0,"message"=>"Landmark is required"],200);
             }
-        } 
+        }
 
         $getuserdata=User::where('id',Session::get('id'))
-        ->get()->first(); 
+        ->get()->first();
 
         $getdata=User::select('min_order_amount','max_order_amount','currency')->where('type','1')
         ->get()->first();
@@ -130,7 +130,7 @@ class OrderController extends Controller
             $discount_amount = "0.00";
         } else {
             $discount_amount = $request->discount_amount;
-        }     
+        }
 
         try {
 
@@ -141,21 +141,21 @@ class OrderController extends Controller
                 if ($request->order_type == "2") {
                     $delivery_charge = "0.00";
                     $address = "";
-                    $lat = "";
-                    $lang = "";
+//                    $lat = "";
+//                    $lang = "";
                     $building = "";
                     $landmark = "";
-                    $postal_code = "";
+//                    $postal_code = "";
                     $order_total = $request->order_total-$request->$delivery_charge;
                 } else {
                     $delivery_charge = $request->delivery_charge;
                     $address = $request->address;
-                    $lat = $request->lat;
-                    $lang = $request->lang;
+//                    $lat = $request->lat;
+//                    $lang = $request->lang;
                     $order_total = $request->order_total;
                     $building = $request->building;
                     $landmark = $request->landmark;
-                    $postal_code = $request->postal_code;
+//                    $postal_code = $request->postal_code;
                 }
 
                 if ($getdata->min_order_amount > $request->total_order) {
@@ -180,11 +180,11 @@ class OrderController extends Controller
                 $order->tax_amount =$request->tax_amount;
                 $order->delivery_charge =$delivery_charge;
                 $order->order_type =$request->order_type;
-                $order->lat =$lat;
-                $order->lang =$lang;
+//                $order->lat =$lat;
+//                $order->lang =$lang;
                 $order->building =$building;
                 $order->landmark =$landmark;
-                $order->pincode =$postal_code;
+//                $order->pincode =$postal_code;
                 $order->order_notes =$request->notes;
                 $order->order_from ='web';
 
@@ -222,19 +222,19 @@ class OrderController extends Controller
                     $response = $e->getMessage() ;
                     return response()->json(['status'=>0,'message'=>'Something went wrong while sending email Please try again...'],200);
                 }
-                
+
                 Session::put('cart', $count);
 
                 session()->forget(['offer_amount','offer_code']);
-                
+
                 return response()->json(['status'=>1,'message'=>'Order has been placed'],200);
             } else {
                 $pincode=Pincode::select('pincode')->where('pincode',$request->postal_code)
                 ->get()->first();
 
-                if(@$pincode['pincode'] == $request->postal_code) {
-                    if(!empty($pincode))
-                    {
+//                if(@$pincode['pincode'] == $request->postal_code) {
+//                    if(!empty($pincode))
+//                    {
                         $order_number = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 10)), 0, 10);
 
                         if ($request->order_type == "2") {
@@ -249,12 +249,12 @@ class OrderController extends Controller
                         } else {
                             $delivery_charge = $request->delivery_charge;
                             $address = $request->address;
-                            $lat = $request->lat;
-                            $lang = $request->lang;
+//                            $lat = $request->lat;
+//                            $lang = $request->lang;
                             $order_total = $request->order_total;
                             $building = $request->building;
                             $landmark = $request->landmark;
-                            $postal_code = $request->postal_code;
+//                            $postal_code = $request->postal_code;
                         }
 
                         if ($getdata->min_order_amount > $request->total_order) {
@@ -272,7 +272,7 @@ class OrderController extends Controller
                         $order->payment_type ='0';
                         $order->status ='1';
                         $order->address =$address;
-                        $order->promocode =$request->promocode;
+//                        $order->promocode =$request->promocode;
                         $order->discount_amount =$discount_amount;
                         $order->discount_pr =$request->discount_pr;
                         $order->tax =$request->tax;
@@ -283,7 +283,7 @@ class OrderController extends Controller
                         $order->lang =$lang;
                         $order->building =$building;
                         $order->landmark =$landmark;
-                        $order->pincode =$postal_code;
+//                        $order->pincode =$postal_code;
                         $order->order_notes =$request->notes;
                         $order->order_from ='web';
 
@@ -321,18 +321,19 @@ class OrderController extends Controller
                             $response = $e->getMessage() ;
                             return response()->json(['status'=>0,'message'=>'Something went wrong while sending email Please try again...'],200);
                         }
-                        
+
                         Session::put('cart', $count);
 
                         session()->forget(['offer_amount','offer_code']);
-                        
+
                         return response()->json(['status'=>1,'message'=>'Order has been placed'],200);
-                    }
-                } else {
-                    return response()->json(['status'=>0,'message'=>'Delivery is not available in your area'],200);
-                }
+//                    }
+//                }
+//                else {
+//                    return response()->json(['status'=>0,'message'=>'Delivery is not available in your area'],200);
+//                }
             }
-            
+
 
         } catch (\Exception $e) {
             return  $e->getMessage();
@@ -345,7 +346,7 @@ class OrderController extends Controller
     {
 
         $getuserdata=User::where('id',Session::get('id'))
-        ->get()->first(); 
+        ->get()->first();
 
         if ($request->order_type == "1") {
             if($request->address == ""){
@@ -371,7 +372,7 @@ class OrderController extends Controller
             if($request->landmark == ""){
                 return response()->json(["status"=>0,"message"=>"Landmark is required"],200);
             }
-        } 
+        }
 
         if ($getuserdata->wallet < $request->order_total) {
             return response()->json(["status"=>0,"message"=>"You don't have sufficient wallet amonut. Please select another payment method"],200);
@@ -384,7 +385,7 @@ class OrderController extends Controller
             $discount_amount = "0.00";
         } else {
             $discount_amount = $request->discount_amount;
-        }     
+        }
 
         try {
 
@@ -491,11 +492,11 @@ class OrderController extends Controller
                     $response = $e->getMessage() ;
                     return response()->json(['status'=>0,'message'=>'Something went wrong while sending email Please try again...'],200);
                 }
-                
+
                 Session::put('cart', $count);
 
                 session()->forget(['offer_amount','offer_code']);
-                
+
                 return response()->json(['status'=>1,'message'=>'Order has been placed'],200);
             } else {
                 $pincode=Pincode::select('pincode')->where('pincode',$request->postal_code)
@@ -605,18 +606,18 @@ class OrderController extends Controller
                             $response = $e->getMessage() ;
                             return response()->json(['status'=>0,'message'=>'Something went wrong while sending email Please try again...'],200);
                         }
-                        
+
                         Session::put('cart', $count);
 
                         session()->forget(['offer_amount','offer_code']);
-                        
+
                         return response()->json(['status'=>1,'message'=>'Order has been placed'],200);
                     }
                 } else {
                     return response()->json(['status'=>0,'message'=>'Delivery is not available in your area'],200);
                 }
             }
-            
+
 
         } catch (\Exception $e) {
             return  $e->getMessage();
@@ -653,7 +654,7 @@ class OrderController extends Controller
 
         $UpdateDetails = Order::where('id', $request->order_id)
                     ->update(['status' => '5']);
-        
+
         if(!empty($UpdateDetails))
         {
             return 1;

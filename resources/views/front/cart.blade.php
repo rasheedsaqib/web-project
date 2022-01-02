@@ -130,41 +130,41 @@
                             </label>
                         </div>
 
-                        @if (env('Environment') == 'sendbox')
-                            <span style="color: red;" id="dummy-msg">You can not change this address in Demo version. When you'll purchase. it will work properly.</span>
-                            <div class="promo-wrap open">
-                                <input type="text" placeholder="Enter a location" name="address" size="50" id="address" value="New York, NY, USA" required="" readonly="" autocomplete="on" >
-                                <input type="hidden" id="lat" name="lat" value="40.7127753" />
-                                <input type="hidden" id="lang" name="lang" value="-74.0059728" />
-                                <input type="hidden" id="city" name="city" placeholder="city" value="New York" />
-                                <input type="hidden" id="state" name="state" placeholder="state" value="NY" />
-                                <input type="hidden" id="country" name="country" placeholder="country" value="US" />
-                            </div>
+{{--                        @if (env('Environment') == 'sendbox')--}}
+{{--                            <span style="color: red;" id="dummy-msg">You can not change this address in Demo version. When you'll purchase. it will work properly.</span>--}}
+{{--                            <div class="promo-wrap open">--}}
+{{--                                <input type="text" placeholder="Enter a location" name="address" size="50" id="address" value="New York, NY, USA" required="" readonly="" autocomplete="on" >--}}
+{{--                                <input type="hidden" id="lat" name="lat" value="40.7127753" />--}}
+{{--                                <input type="hidden" id="lang" name="lang" value="-74.0059728" />--}}
+{{--                                <input type="hidden" id="city" name="city" placeholder="city" value="New York" />--}}
+{{--                                <input type="hidden" id="state" name="state" placeholder="state" value="NY" />--}}
+{{--                                <input type="hidden" id="country" name="country" placeholder="country" value="US" />--}}
+{{--                            </div>--}}
 
-                            <div class="promo-wrap open">
-                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" value="10001" readonly="" />
-                            </div>
+{{--                            <div class="promo-wrap open">--}}
+{{--                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" value="10001" readonly="" />--}}
+{{--                            </div>--}}
 
-                            <div class="promo-wrap open">
-                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required="" value="4043" readonly="">
-                            </div>
+{{--                            <div class="promo-wrap open">--}}
+{{--                                <input type="text" placeholder="Door / Flat no." name="building" id="building" required="" value="4043" readonly="">--}}
+{{--                            </div>--}}
 
-                            <div class="promo-wrap open">
-                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="" value="Central Park" readonly="">
-                            </div>
-                        @else
+{{--                            <div class="promo-wrap open">--}}
+{{--                                <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="" value="Central Park" readonly="">--}}
+{{--                            </div>--}}
+{{--                        @else--}}
                             <div class="promo-wrap open">
                                 <input type="text" placeholder="Delivery address" name="address" size="50" id="address" required="" autocomplete="on" >
-                                <input type="hidden" id="lat" name="lat" />
-                                <input type="hidden" id="lang" name="lang" />
-                                <input type="hidden" id="city" name="city" placeholder="city" />
-                                <input type="hidden" id="state" name="state" placeholder="state" />
-                                <input type="hidden" id="country" name="country" placeholder="country" />
+{{--                                <input type="hidden" id="lat" name="lat" />--}}
+{{--                                <input type="hidden" id="lang" name="lang" />--}}
+{{--                                <input type="hidden" id="city" name="city" placeholder="city" />--}}
+{{--                                <input type="hidden" id="state" name="state" placeholder="state" />--}}
+{{--                                <input type="hidden" id="country" name="country" placeholder="country" />--}}
                             </div>
 
-                            <div class="promo-wrap open">
-                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" />
-                            </div>
+{{--                            <div class="promo-wrap open">--}}
+{{--                                <input type="text" id="postal_code" name="postal_code" placeholder="Pincode" />--}}
+{{--                            </div>--}}
 
                             <div class="promo-wrap open">
                                 <input type="text" placeholder="Door / Flat no." name="building" id="building" required="">
@@ -173,7 +173,7 @@
                             <div class="promo-wrap open">
                                 <input type="text" placeholder="Landmark" name="landmark" id="landmark" required="">
                             </div>
-                        @endif
+{{--                        @endif--}}
 
                         <div class="promo-wrap open">
                             <textarea name="notes" id="notes" placeholder="Write order notes..." rows="3"></textarea>
@@ -203,11 +203,11 @@
                             <input type="hidden" name="discount_pr" id="discount_pr" value="">
                         @endif
 
-                        @if (Session::has('offer_amount'))
-                            <input type="hidden" name="getpromo" id="getpromo" value="{{Session::get('offer_code')}}">
-                        @else
-                            <input type="hidden" name="getpromo" id="getpromo" value="">
-                        @endif
+{{--                        @if (Session::has('offer_amount'))--}}
+{{--                            <input type="hidden" name="getpromo" id="getpromo" value="{{Session::get('offer_code')}}">--}}
+{{--                        @else--}}
+{{--                            <input type="hidden" name="getpromo" id="getpromo" value="">--}}
+{{--                        @endif--}}
 
                         <div class="mt-3">
                             <button type="button" style="width: 100%;" class="btn open comman" onclick="WalletOrder()">My Wallet ({{$taxval->currency}}{{number_format($userinfo->wallet, 2)}})</button>
@@ -258,34 +258,34 @@
 </section>
 
 <!-- Modal -->
-<div class="promo-modal modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-     role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-head">
-                <h4>Select Promocode</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                @foreach ($getpromocode as $promocode)
-                    <div class="promo-box">
-                        <button class="btn btn-copy" data-id="{{$promocode->offer_code}}">Copy</button>
-                        <p class="promo-title">{{$promocode->offer_name}}</p>
-                        <p class="promo-code-here">Code :: <span>{{$promocode->offer_code}}</span></p>
-                        <small>{{$promocode->description}}</small>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="promo-modal modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"--}}
+{{--     role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">--}}
+{{--    <div class="modal-dialog modal-dialog-centered">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-head">--}}
+{{--                <h4>Select Promocode</h4>--}}
+{{--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                    <span aria-hidden="true">&times;</span>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--            <div class="modal-body">--}}
+{{--                @foreach ($getpromocode as $promocode)--}}
+{{--                    <div class="promo-box">--}}
+{{--                        <button class="btn btn-copy" data-id="{{$promocode->offer_code}}">Copy</button>--}}
+{{--                        <p class="promo-title">{{$promocode->offer_name}}</p>--}}
+{{--                        <p class="promo-code-here">Code :: <span>{{$promocode->offer_code}}</span></p>--}}
+{{--                        <small>{{$promocode->description}}</small>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 @include('front.theme.footer')
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="https://checkout.stripe.com/v2/checkout.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{$taxval->map}}&libraries=places"></script>
+{{--<script src="https://checkout.razorpay.com/v1/checkout.js"></script>--}}
+{{--<script src="https://checkout.stripe.com/v2/checkout.js"></script>--}}
+{{--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{$taxval->map}}&libraries=places"></script>--}}
 
 <script type="text/javascript">
 
@@ -398,25 +398,27 @@
                 setTimeout(function() {
                     $("#error-msg").hide();
                 }, 5000);
-            } else if (lat == "") {
-                $('#ermsg').text('Please select the address from suggestion');
-                $('#error-msg').addClass('alert-danger');
-                $('#error-msg').css("display","block");
-
-                setTimeout(function() {
-                    $("#error-msg").hide();
-                }, 5000);
-
-            } else if (lang == "") {
-                $('#ermsg').text('Please select the address from suggestion');
-                $('#error-msg').addClass('alert-danger');
-                $('#error-msg').css("display","block");
-
-                setTimeout(function() {
-                    $("#error-msg").hide();
-                }, 5000);
-
-            } else if (building == "") {
+            }
+            // else if (lat == "") {
+            //     $('#ermsg').text('Please select the address from suggestion');
+            //     $('#error-msg').addClass('alert-danger');
+            //     $('#error-msg').css("display","block");
+            //
+            //     setTimeout(function() {
+            //         $("#error-msg").hide();
+            //     }, 5000);
+            //
+            // } else if (lang == "") {
+            //     $('#ermsg').text('Please select the address from suggestion');
+            //     $('#error-msg').addClass('alert-danger');
+            //     $('#error-msg').css("display","block");
+            //
+            //     setTimeout(function() {
+            //         $("#error-msg").hide();
+            //     }, 5000);
+            //
+            // }
+            else if (building == "") {
                 $('#ermsg').text('Door / Flat no. is required');
                 $('#error-msg').addClass('alert-danger');
                 $('#error-msg').css("display","block");
@@ -524,8 +526,8 @@
                     }
                 }
 
-                document.getElementById('lat').value = place.geometry.location.lat();
-                document.getElementById('lang').value = place.geometry.location.lng();
+                // document.getElementById('lat').value = place.geometry.location.lat();
+                // document.getElementById('lang').value = place.geometry.location.lng();
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -622,25 +624,27 @@
                 setTimeout(function() {
                     $("#error-msg").hide();
                 }, 5000);
-            } else if (lat == "") {
-                $('#ermsg').text('Please select the address from suggestion');
-                $('#error-msg').addClass('alert-danger');
-                $('#error-msg').css("display","block");
-
-                setTimeout(function() {
-                    $("#error-msg").hide();
-                }, 5000);
-
-            } else if (lang == "") {
-                $('#ermsg').text('Please select the address from suggestion');
-                $('#error-msg').addClass('alert-danger');
-                $('#error-msg').css("display","block");
-
-                setTimeout(function() {
-                    $("#error-msg").hide();
-                }, 5000);
-
-            } else if (building == "") {
+            }
+            // else if (lat == "") {
+            //     $('#ermsg').text('Please select the address from suggestion');
+            //     $('#error-msg').addClass('alert-danger');
+            //     $('#error-msg').css("display","block");
+            //
+            //     setTimeout(function() {
+            //         $("#error-msg").hide();
+            //     }, 5000);
+            //
+            // } else if (lang == "") {
+            //     $('#ermsg').text('Please select the address from suggestion');
+            //     $('#error-msg').addClass('alert-danger');
+            //     $('#error-msg').css("display","block");
+            //
+            //     setTimeout(function() {
+            //         $("#error-msg").hide();
+            //     }, 5000);
+            //
+            // }
+            else if (building == "") {
                 $('#ermsg').text('Door / Flat no. is required');
                 $('#error-msg').addClass('alert-danger');
                 $('#error-msg').css("display","block");
@@ -891,8 +895,8 @@
         var promocode = $('#getpromo').val();
         var tax_amount = $('#tax_amount').val();
         var discount_pr = $('#discount_pr').val();
-        var lat = $('#lat').val();
-        var lang = $('#lang').val();
+        // var lat = $('#lat').val();
+        // var lang = $('#lang').val();
         var postal_code = $('#postal_code').val();
         var building = $('#building').val();
         var landmark = $('#landmark').val();
@@ -916,8 +920,8 @@
                 delivery_charge : delivery_charge ,
                 notes : notes,
                 order_type : order_type,
-                lat : lat,
-                lang : lang,
+                // lat : lat,
+                // lang : lang,
                 postal_code : postal_code,
                 building : building,
                 landmark : landmark,
