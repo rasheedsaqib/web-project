@@ -19,11 +19,6 @@ use Validator;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $getabout = About::where('id', '=', '1')->first();
