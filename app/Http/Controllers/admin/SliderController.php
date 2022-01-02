@@ -78,7 +78,7 @@ class SliderController extends Controller
         $slider = Slider::findorFail($request->id);
         $getslider = Slider::where('id', $request->id)->first();
         if ($getslider->image) {
-            $getslider->img = url('public/images/slider/' . $getslider->image);
+            $getslider->img = url('images/slider/' . $getslider->image);
         }
         return response()->json(['ResponseCode' => 1, 'ResponseText' => 'Slider fetch successfully', 'ResponseData' => $getslider], 200);
     }
@@ -126,7 +126,7 @@ class SliderController extends Controller
                 if ($request->hasFile('image')) {
                     $image = $request->file('image');
                     $image = 'slider-' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-                    $request->image->move('public/images/slider', $image);
+                    $request->image->move('images/slider', $image);
                     $slider->image = $image;
                     unlink(public_path('images/slider/' . $request->old_img));
                 }
